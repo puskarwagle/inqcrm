@@ -16,27 +16,59 @@ return new class extends Migration
     {
         $tablePrefix = DB::getTablePrefix();
 
-        Schema::table('lead_pipeline_stages', function (Blueprint $table) {
-            $table->string('code')->after('id')->nullable();
-            $table->string('name')->after('code')->nullable();
-        });
+        // Add columns only if they don't already exist (idempotent)
+        if (! Schema::hasColumn('lead_pipeline_stages', 'code')) {
+            Schema::table('lead_pipeline_stages', function (Blueprint $table) {
+                $table->string('code')->after('id')->nullable();
+            });
+        }
 
-        // PostgreSQL-compatible UPDATE with FROM clause
-        DB::statement("
-            UPDATE {$tablePrefix}lead_pipeline_stages
-            SET code = {$tablePrefix}lead_stages.code,
-                name = {$tablePrefix}lead_stages.name
-            FROM {$tablePrefix}lead_stages
-            WHERE {$tablePrefix}lead_pipeline_stages.lead_stage_id = {$tablePrefix}lead_stages.id
-        ");
+        if (! Schema::hasColumn('lead_pipeline_stages', 'name')) {
+            Schema::table('lead_pipeline_stages', function (Blueprint $table) {
+                $table->string('name')->after('code')->nullable();
+            });
+        }
 
-        Schema::table('lead_pipeline_stages', function (Blueprint $table) use ($tablePrefix) {
-            $table->dropForeign($tablePrefix.'lead_pipeline_stages_lead_stage_id_foreign');
-            $table->dropColumn('lead_stage_id');
 
-            $table->unique(['code', 'lead_pipeline_id']);
-            $table->unique(['name', 'lead_pipeline_id']);
-        });
+            // MySQL-compatible UPDATE with JOIN
+            // Only run update if the referenced tables/columns exist
+            if (Schema::hasTable('lead_pipeline_stages') && Schema::hasTable('lead_stages')) {
+                DB::statement("
+                    UPDATE {$tablePrefix}lead_pipeline_stages
+                    JOIN {$tablePrefix}lead_stages ON {$tablePrefix}lead_pipeline_stages.lead_stage_id = {$tablePrefix}lead_stages.id
+                    SET {$tablePrefix}lead_pipeline_stages.code = {$tablePrefix}lead_stages.code,
+                        {$tablePrefix}lead_pipeline_stages.name = {$tablePrefix}lead_stages.name
+                ");
+            }
+
+            // Drop foreign/column only if it exists
+            if (Schema::hasColumn('lead_pipeline_stages', 'lead_stage_id')) {
+                Schema::table('lead_pipeline_stages', function (Blueprint $table) use ($tablePrefix) {
+                    // dropForeign can fail if the constraint name does not exist; swallow exceptions
+                    try {
+                        $table->dropForeign($tablePrefix.'lead_pipeline_stages_lead_stage_id_foreign');
+                    } catch (\Exception $e) {
+                        // ignore
+                    }
+
+                    $table->dropColumn('lead_stage_id');
+                });
+            }
+
+            // Create unique indexes only if they do not already exist
+            $codeIndex = DB::select("SHOW INDEX FROM {$tablePrefix}lead_pipeline_stages WHERE Key_name = 'lead_pipeline_stages_code_lead_pipeline_id_unique'");
+            if (count($codeIndex) === 0) {
+                Schema::table('lead_pipeline_stages', function (Blueprint $table) {
+                    $table->unique(['code', 'lead_pipeline_id']);
+                });
+            }
+
+            $nameIndex = DB::select("SHOW INDEX FROM {$tablePrefix}lead_pipeline_stages WHERE Key_name = 'lead_pipeline_stages_name_lead_pipeline_id_unique'");
+            if (count($nameIndex) === 0) {
+                Schema::table('lead_pipeline_stages', function (Blueprint $table) {
+                    $table->unique(['name', 'lead_pipeline_id']);
+                });
+            }
     }
 
     /**
