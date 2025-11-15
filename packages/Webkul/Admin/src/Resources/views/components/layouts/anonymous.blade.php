@@ -35,7 +35,10 @@
     @stack('meta')
 
     {{
-        vite()->set(['src/Resources/assets/css/app.css', 'src/Resources/assets/js/app.js'])
+        vite()->set([
+            'packages/Webkul/Admin/src/Resources/assets/css/app.css',
+            'packages/Webkul/Admin/src/Resources/assets/js/app.js'
+        ])
     }}
 
     <link
