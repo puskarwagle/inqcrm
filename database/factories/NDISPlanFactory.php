@@ -28,17 +28,17 @@ class NDISPlanFactory extends Factory
         $supportCoordinationUsed = $this->faker->randomFloat(2, 0, $supportCoordinationBudget * 0.8);
 
         return [
-            'participant_id' => Participant::factory(),
-            'ndis_number' => 'PLAN-' . $this->faker->unique()->randomNumber(7),
-            'plan_start_date' => $this->faker->dateTimeBetween('-1 year', 'now')->format('Y-m-d'),
-            'plan_end_date' => $this->faker->dateTimeBetween('now', '+1 year')->format('Y-m-d'),
-            'plan_manager' => $this->faker->name,
-            'total_budget' => $totalBudget,
-            'used_budget' => $usedBudget,
+            'participant_id'              => Participant::factory(),
+            'ndis_number'                 => 'PLAN-'.$this->faker->unique()->randomNumber(7),
+            'plan_start_date'             => $this->faker->dateTimeBetween('-1 year', 'now')->format('Y-m-d'),
+            'plan_end_date'               => $this->faker->dateTimeBetween('now', '+1 year')->format('Y-m-d'),
+            'plan_manager'                => $this->faker->name,
+            'total_budget'                => $totalBudget,
+            'used_budget'                 => $usedBudget,
             'support_coordination_budget' => $supportCoordinationBudget,
-            'support_coordination_used' => $supportCoordinationUsed,
-            'plan_document_id' => null,
-            'is_active' => $this->faker->boolean(),
+            'support_coordination_used'   => $supportCoordinationUsed,
+            'plan_document_id'            => null,
+            'is_active'                   => $this->faker->boolean(),
         ];
     }
 }

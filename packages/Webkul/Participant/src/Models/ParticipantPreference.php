@@ -21,8 +21,6 @@ class ParticipantPreference extends Model
 
     /**
      * Get the participant this preference belongs to.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function participant(): BelongsTo
     {

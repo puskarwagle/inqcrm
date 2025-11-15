@@ -1,25 +1,25 @@
 <?php
 
+use Carbon\Carbon;
+use Webkul\Billing\Models\Invoice;
 use Webkul\NDISPlan\Models\NDISPlan;
 use Webkul\Participant\Models\Participant;
-use Webkul\Billing\Models\Invoice;
-use Carbon\Carbon;
 
 it('can create an NDIS plan', function () {
     $participant = Participant::factory()->create();
 
     $ndisPlan = NDISPlan::create([
-        'participant_id' => $participant->id,
-        'ndis_number' => 'PLAN123456789',
-        'plan_start_date' => '2024-01-01',
-        'plan_end_date' => '2024-12-31',
-        'plan_manager' => 'Manager A',
-        'total_budget' => 10000.00,
-        'used_budget' => 2000.00,
+        'participant_id'              => $participant->id,
+        'ndis_number'                 => 'PLAN123456789',
+        'plan_start_date'             => '2024-01-01',
+        'plan_end_date'               => '2024-12-31',
+        'plan_manager'                => 'Manager A',
+        'total_budget'                => 10000.00,
+        'used_budget'                 => 2000.00,
         'support_coordination_budget' => 1000.00,
-        'support_coordination_used' => 100.00,
-        'plan_document_id' => null,
-        'is_active' => true,
+        'support_coordination_used'   => 100.00,
+        'plan_document_id'            => null,
+        'is_active'                   => true,
     ]);
 
     expect($ndisPlan)->toBeInstanceOf(NDISPlan::class);
@@ -46,7 +46,7 @@ it('has many invoices relationship', function () {
 it('calculates remaining budget correctly', function () {
     $ndisPlan = NDISPlan::factory()->create([
         'total_budget' => 5000.00,
-        'used_budget' => 1500.00,
+        'used_budget'  => 1500.00,
     ]);
 
     expect($ndisPlan->remaining_budget)->toBe(3500.00);
@@ -55,7 +55,7 @@ it('calculates remaining budget correctly', function () {
 it('checks if plan is within budget', function () {
     $ndisPlan = NDISPlan::factory()->create([
         'total_budget' => 5000.00,
-        'used_budget' => 4000.00,
+        'used_budget'  => 4000.00,
     ]);
     expect($ndisPlan->isWithinBudget())->toBeTrue();
 
@@ -74,7 +74,7 @@ it('checks if plan has expired', function () {
 it('casts date fields to date objects', function () {
     $ndisPlan = NDISPlan::factory()->create([
         'plan_start_date' => '2023-01-01',
-        'plan_end_date' => '2023-12-31',
+        'plan_end_date'   => '2023-12-31',
     ]);
 
     expect($ndisPlan->plan_start_date)->toBeInstanceOf(Carbon::class);
@@ -84,10 +84,10 @@ it('casts date fields to date objects', function () {
 
 it('casts float fields correctly', function () {
     $ndisPlan = NDISPlan::factory()->create([
-        'total_budget' => 1234.56,
-        'used_budget' => 123.45,
+        'total_budget'                => 1234.56,
+        'used_budget'                 => 123.45,
         'support_coordination_budget' => 100.00,
-        'support_coordination_used' => 10.00,
+        'support_coordination_used'   => 10.00,
     ]);
 
     expect($ndisPlan->total_budget)->toBe(1234.56);

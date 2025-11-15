@@ -30,23 +30,21 @@ class NDISPlan extends Model
     ];
 
     protected $casts = [
-        'plan_start_date' => 'date',
-        'plan_end_date' => 'date',
-        'total_budget' => 'float',
-        'used_budget' => 'float',
-        'remaining_budget' => 'float',
-        'support_coordination_budget' => 'float',
-        'support_coordination_used' => 'float',
+        'plan_start_date'                => 'date',
+        'plan_end_date'                  => 'date',
+        'total_budget'                   => 'float',
+        'used_budget'                    => 'float',
+        'remaining_budget'               => 'float',
+        'support_coordination_budget'    => 'float',
+        'support_coordination_used'      => 'float',
         'support_coordination_remaining' => 'float',
-        'is_active' => 'boolean',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
+        'is_active'                      => 'boolean',
+        'created_at'                     => 'datetime',
+        'updated_at'                     => 'datetime',
     ];
 
     /**
      * Get the participant this plan belongs to.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function participant(): BelongsTo
     {
@@ -55,8 +53,6 @@ class NDISPlan extends Model
 
     /**
      * Get all invoices for this plan.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function invoices(): HasMany
     {
@@ -65,8 +61,6 @@ class NDISPlan extends Model
 
     /**
      * Calculate remaining budget.
-     *
-     * @return float
      */
     public function getRemainingBudgetAttribute(): float
     {
@@ -75,8 +69,6 @@ class NDISPlan extends Model
 
     /**
      * Check if plan is within budget.
-     *
-     * @return bool
      */
     public function isWithinBudget(): bool
     {
@@ -85,8 +77,6 @@ class NDISPlan extends Model
 
     /**
      * Check if plan has expired.
-     *
-     * @return bool
      */
     public function hasExpired(): bool
     {
