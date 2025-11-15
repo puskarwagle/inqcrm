@@ -32,9 +32,9 @@ install_dependencies_linux() {
         sudo apt-get update
     fi
 
-    # Install PHP 8.2 and extensions
-    echo "Installing PHP 8.2 and required extensions..."
-    sudo apt-get install -y php8.2 php8.2-cli php8.2-mysql php8.2-xml php8.2-curl php8.2-mbstring php8.2-dom php8.2-zip
+    # Install PHP 8.4 and extensions
+    echo "Installing PHP 8.4 and required extensions..."
+    sudo apt-get install -y php8.4 php8.4-cli php8.4-mysql php8.4-xml php8.4-curl php8.4-mbstring php8.4-dom php8.4-zip php8.4-gd
 
     # Install MySQL Server
     if ! command_exists mysql; then
