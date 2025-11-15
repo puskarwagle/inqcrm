@@ -3,7 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Webkul\Installer\Database\Seeders\DatabaseSeeder as KrayinDatabaseSeeder;
+use Webkul\Lead\Models\Lead;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +15,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(KrayinDatabaseSeeder::class);
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        $this->call(\Database\Seeders\Tables\RolesSeeder::class);
+        $this->call(\Database\Seeders\Tables\GroupsSeeder::class);
+        $this->call(\Database\Seeders\Tables\UsersSeeder::class);
+        $this->call(\Database\Seeders\Tables\LeadPipelinesSeeder::class);
+        $this->call(\Database\Seeders\Tables\LeadPipelineStagesSeeder::class);
+        $this->call(\Database\Seeders\Tables\LeadSourcesSeeder::class);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
