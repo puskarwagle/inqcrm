@@ -60,7 +60,7 @@
                                     <div class="flex items-center gap-3">
                                         <span class="{{ $menuItem->getIcon() }} text-2xl"></span>
 
-                                        <p class="whitespace-nowrap font-semibold">{{ $menuItem->getName() }}</p>
+                                        <p class="whitespace-nowrap font-semibold">{{ __($menuItem->getName()) }}</p>
                                     </div>
 
                                     @if ($menuItem->haveChildren())
@@ -81,7 +81,7 @@
                                                 href="{{ $subMenuItem->getUrl() }}"
                                                 class="submenu-link block whitespace-nowrap p-2 pl-10 text-sm transition-colors duration-200"
                                                 :class="{ 'text-brandColor font-medium bg-gray-100 dark:bg-gray-800': '{{ $subMenuItem->isActive() }}' === '1', 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800': '{{ $subMenuItem->isActive() }}' !== '1' }">
-                                                {{ $subMenuItem->getName() }}
+                                                {{ __($subMenuItem->getName()) }}
                                             </a>
                                         @endforeach
                                     </div>

@@ -1,0 +1,20 @@
+{
+    "name": "webkul/participant",
+    "description": "NDIS Participant module for Krayin CRM.",
+    "type": "krayin-package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Webkul\\Participant\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webkul\\Participant\\Providers\\ParticipantServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev"
+}

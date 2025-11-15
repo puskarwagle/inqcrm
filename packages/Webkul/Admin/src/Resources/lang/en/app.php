@@ -2,48 +2,19 @@
 
 return [
     'acl' => [
-        'leads'           => 'Leads',
-        'lead'            => 'Lead',
-        'quotes'          => 'Quotes',
-        'mail'            => 'Mail',
-        'inbox'           => 'Inbox',
-        'draft'           => 'Draft',
-        'outbox'          => 'Outbox',
-        'sent'            => 'Sent',
-        'trash'           => 'Trash',
-        'activities'      => 'Activities',
-        'webhook'         => 'Webhook',
-        'contacts'        => 'Contacts',
-        'persons'         => 'Persons',
-        'organizations'   => 'Organizations',
-        'products'        => 'Products',
-        'settings'        => 'Settings',
-        'groups'          => 'Groups',
-        'roles'           => 'Roles',
-        'users'           => 'Users',
-        'user'            => 'User',
-        'automation'      => 'Automation',
-        'attributes'      => 'Attributes',
-        'pipelines'       => 'Pipelines',
-        'sources'         => 'Sources',
-        'types'           => 'Types',
-        'email-templates' => 'Email Templates',
-        'workflows'       => 'Workflows',
-        'other-settings'  => 'Other Settings',
-        'tags'            => 'Tags',
-        'configuration'   => 'Configuration',
-        'create'          => 'Create',
-        'edit'            => 'Edit',
-        'view'            => 'View',
-        'print'           => 'Print',
-        'delete'          => 'Delete',
-        'export'          => 'Export',
-        'mass-delete'     => 'Mass Delete',
-        'data-transfer'   => 'Data Transfer',
-        'imports'         => 'Imports',
-        'import'          => 'Import',
-        'event'           => 'Event',
-        'campaigns'       => 'Campaigns',
+        // Keep ACL action/permission strings here. Menu labels live under 'layouts'.
+        'create'        => 'Create',
+        'edit'          => 'Edit',
+        'view'          => 'View',
+        'print'         => 'Print',
+        'delete'        => 'Delete',
+        'export'        => 'Export',
+        'mass-delete'   => 'Mass Delete',
+        'data-transfer' => 'Data Transfer',
+        'imports'       => 'Imports',
+        'import'        => 'Import',
+        'event'         => 'Event',
+        'campaigns'     => 'Campaigns',
     ],
 
     'users' => [
@@ -2280,6 +2251,8 @@ return [
         'leads'                => 'Leads',
         'quotes'               => 'Quotes',
         'quote'                => 'Quote',
+
+        // Mail (nested to support dot-notated access like layouts.mail.inbox)
         'mail'                 => [
             'title'   => 'Mail',
             'compose' => 'Compose',
@@ -2290,6 +2263,7 @@ return [
             'trash'   => 'Trash',
             'setting' => 'Setting',
         ],
+
         'activities'           => 'Activities',
         'contacts'             => 'Contacts',
         'persons'              => 'Persons',
@@ -2298,6 +2272,93 @@ return [
         'organization'         => 'Organization',
         'products'             => 'Products',
         'product'              => 'Product',
+
+        // NDIS / Participants related
+        'participants'         => 'Participants',
+        'all-participants'     => 'All Participants',
+        'active-participants'  => 'Active Participants',
+        'participant-profiles' => 'Participant Profiles',
+        'participant-analytics'=> 'Participant Analytics',
+
+        // NDIS Plans
+        'ndis-plans'           => 'NDIS Plans',
+        'active-plans'         => 'Active Plans',
+        'expiring-plans'       => 'Expiring Plans',
+        'budget-tracking'      => 'Budget Tracking',
+
+        // Service Requests / Bookings / Providers
+        'service-requests'     => 'Service Requests',
+        'open-requests'        => 'Open Requests',
+        'in-progress-requests' => 'In Progress Requests',
+        'scheduled-requests'   => 'Scheduled Requests',
+        'completed-requests'   => 'Completed Requests',
+
+        'providers'            => 'Providers',
+        'all-providers'        => 'All Providers',
+        'support-workers'      => 'Support Workers',
+        'provider-ratings'     => 'Provider Ratings',
+        'provider-availability'=> 'Provider Availability',
+        'provider-matching'    => 'Provider Matching',
+        'provider-performance' => 'Provider Performance',
+        'provider-sync'        => 'Provider Sync',
+
+        'bookings'             => 'Bookings',
+        'calendar-view'        => 'Calendar View',
+        'scheduled-bookings'   => 'Scheduled Bookings',
+        'in-progress-bookings' => 'In Progress Bookings',
+        'completed-bookings'   => 'Completed Bookings',
+        'smart-scheduling'     => 'Smart Scheduling',
+
+        // Billing & Invoicing
+        'billing'              => 'Billing',
+        'invoices'             => 'Invoices',
+        'pending-invoices'     => 'Pending Invoices',
+        'submitted-invoices'   => 'Submitted Invoices',
+        'paid-invoices'        => 'Paid Invoices',
+        'ndis-rates'           => 'NDIS Rates',
+
+        // Documents & Communications
+        'documents'            => 'Documents',
+        'all-documents'        => 'All Documents',
+        'ndis-plan-documents'  => 'NDIS Plan Documents',
+        'invoice-documents'    => 'Invoice Documents',
+        'service-agreements'   => 'Service Agreements',
+
+        'communications'       => 'Communications',
+        'all-communications'   => 'All Communications',
+        'calls'                => 'Calls',
+        'emails'               => 'Emails',
+        'notes'                => 'Notes',
+
+        // Reports & Analytics
+        'reports'              => 'Reports',
+        'overview'             => 'Overview',
+        'budget-utilization'   => 'Budget Utilization',
+        'service-delivery'     => 'Service Delivery',
+        'financial-reports'    => 'Financial Reports',
+
+        // AI Assistant / Integrations
+        'ai-assistant'         => 'AI Assistant',
+        'request-triage'       => 'Request Triage',
+        'budget-predictions'   => 'Budget Predictions',
+        'ai-logs'              => 'AI Logs',
+
+        'ndis-integration'     => 'NDIS Integration',
+        'api-logs'             => 'API Logs',
+        'rate-updates'         => 'Rate Updates',
+
+        // Notifications
+        'notifications'        => 'Notifications',
+        'all-notifications'    => 'All Notifications',
+        'budget-alerts'        => 'Budget Alerts',
+        'reminders'            => 'Reminders',
+        'system-alerts'        => 'System Alerts',
+
+        // NDIS Settings
+        'ndis-settings'        => 'NDIS Settings',
+        'saved-filters'        => 'Saved Filters',
+
+        // General admin/menu labels
         'settings'             => 'Settings',
         'user'                 => 'User',
         'user-info'            => 'Manage all your users and their permissions in the CRM, what they’re allowed to do.',
@@ -2341,15 +2402,23 @@ return [
         'back'                 => 'Back',
         'name'                 => 'Name',
         'configuration'        => 'Configuration',
-        'activities'           => 'Activities',
         'howdy'                => 'Howdy!',
         'warehouses'           => 'Warehouses',
         'warehouse'            => 'Warehouse',
         'warehouses-info'      => 'Add, edit or delete warehouses from CRM',
         'data_transfer'        => 'Data Transfer',
         'data_transfer_info'   => 'Manage persons, products and leads data transfer related settings in the CRM',
+        'ndis'                 => 'NDIS',
+        'ndis-info'            => 'Manage NDIS related settings and configurations.',
+        'service-categories'       => 'Service Categories',
+        'service-categories-info'  => 'Manage NDIS service categories.',
+        'agreement-templates'      => 'Agreement Templates',
+        'agreement-templates-info' => 'Manage NDIS agreement templates.',
+        'automation-rules'         => 'Automation Rules',
+        'automation-rules-info'    => 'Manage NDIS automation rules.',
+        'tenant-management'        => 'Tenant Management',
+        'tenant-management-info'   => 'Manage NDIS tenant settings.',
     ],
-
     'user' => [
         'account' => [
             'name'                  => 'Name',

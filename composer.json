@@ -76,7 +76,9 @@
             "Webkul\\User\\": "packages/Webkul/User/src",
             "Webkul\\Warehouse\\": "packages/Webkul/Warehouse/src",
             "Webkul\\WebForm\\": "packages/Webkul/WebForm/src",
-            "Webkul\\Automation\\": "packages/Webkul/Automation/src"
+            "Webkul\\Automation\\": "packages/Webkul/Automation/src",
+            "Webkul\\NDISPlan\\": "packages/Webkul/NDISPlan/src",
+            "Webkul\\Participant\\": "packages/Webkul/Participant/src"
         }
     },
     "autoload-dev": {
