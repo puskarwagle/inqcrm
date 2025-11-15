@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders\Tables;
 
 use Illuminate\Database\Seeder;
@@ -16,43 +17,41 @@ class LeadSourcesSeeder extends Seeder
         /**
          * Command :
          * artisan seed:generate --table-mode --tables=activities,activity_files,activity_participants,attributes,attribute_options,attribute_values,core_config,countries,country_states,email_attachments,email_templates,emails,groups,lead_pipeline_stages,lead_pipelines,lead_products,lead_sources,lead_stages,leads,organizations,persons,products,quote_items,quotes,roles,tags,workflows
-         *
          */
-
-DB::table("lead_sources")->truncate();
+        DB::table('lead_sources')->truncate();
         $dataTables = [
             [
-                'id' => 1,
-                'name' => 'Email',
+                'id'         => 1,
+                'name'       => 'Email',
                 'created_at' => '2025-11-15 07:31:34',
                 'updated_at' => '2025-11-15 07:31:34',
             ],
             [
-                'id' => 2,
-                'name' => 'Web',
+                'id'         => 2,
+                'name'       => 'Web',
                 'created_at' => '2025-11-15 07:31:34',
                 'updated_at' => '2025-11-15 07:31:34',
             ],
             [
-                'id' => 3,
-                'name' => 'Web Form',
+                'id'         => 3,
+                'name'       => 'Web Form',
                 'created_at' => '2025-11-15 07:31:34',
                 'updated_at' => '2025-11-15 07:31:34',
             ],
             [
-                'id' => 4,
-                'name' => 'Phone',
+                'id'         => 4,
+                'name'       => 'Phone',
                 'created_at' => '2025-11-15 07:31:34',
                 'updated_at' => '2025-11-15 07:31:34',
             ],
             [
-                'id' => 5,
-                'name' => 'Direct',
+                'id'         => 5,
+                'name'       => 'Direct',
                 'created_at' => '2025-11-15 07:31:34',
                 'updated_at' => '2025-11-15 07:31:34',
-            ]
+            ],
         ];
-        
-        DB::table("lead_sources")->insert($dataTables);
+
+        DB::table('lead_sources')->insert($dataTables);
     }
 }
