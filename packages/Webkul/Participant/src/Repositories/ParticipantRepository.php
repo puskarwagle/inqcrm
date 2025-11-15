@@ -2,8 +2,8 @@
 
 namespace Webkul\Participant\Repositories;
 
-use Webkul\Participant\Models\Participant;
 use Illuminate\Database\Eloquent\Collection;
+use Webkul\Participant\Models\Participant;
 
 class ParticipantRepository
 {

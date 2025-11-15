@@ -30,15 +30,15 @@ tr:nth-child(even) {
     <th>Count</th>
   </tr>
   <?php
-  $file = fopen("table_counts.txt", "r");
+  $file = fopen('table_counts.txt', 'r');
   if ($file) {
       while (($line = fgets($file)) !== false) {
-          $parts = explode(": ", trim($line));
+          $parts = explode(': ', trim($line));
           if (count($parts) == 2) {
-              echo "<tr>";
-              echo "<td>" . htmlspecialchars($parts[0]) . "</td>";
-              echo "<td>" . htmlspecialchars($parts[1]) . "</td>";
-              echo "</tr>";
+              echo '<tr>';
+              echo '<td>'.htmlspecialchars($parts[0]).'</td>';
+              echo '<td>'.htmlspecialchars($parts[1]).'</td>';
+              echo '</tr>';
           }
       }
       fclose($file);

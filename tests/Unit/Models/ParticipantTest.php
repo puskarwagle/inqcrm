@@ -1,25 +1,25 @@
 <?php
 
-use Webkul\Participant\Models\Participant;
 use Webkul\Contact\Models\Contact;
-use Webkul\User\Models\User;
 use Webkul\NDISPlan\Models\NDISPlan;
+use Webkul\Participant\Models\Participant;
 use Webkul\ServiceRequest\Models\ServiceRequest;
+use Webkul\User\Models\User;
 
 it('can create a participant', function () {
     $contact = Contact::factory()->create();
     $user = User::factory()->create();
 
     $participant = Participant::create([
-        'contact_id' => $contact->id,
-        'user_id' => $user->id,
-        'ndis_number' => 'NDIS123456789',
-        'date_of_birth' => '1990-01-01',
-        'address' => '123 Main St',
+        'contact_id'        => $contact->id,
+        'user_id'           => $user->id,
+        'ndis_number'       => 'NDIS123456789',
+        'date_of_birth'     => '1990-01-01',
+        'address'           => '123 Main St',
         'emergency_contact' => 'John Doe - 0400000000',
-        'disabilities' => ['mobility', 'vision'],
-        'preferences' => ['communication' => 'email'],
-        'is_active' => true,
+        'disabilities'      => ['mobility', 'vision'],
+        'preferences'       => ['communication' => 'email'],
+        'is_active'         => true,
     ]);
 
     expect($participant)->toBeInstanceOf(Participant::class);
@@ -69,7 +69,7 @@ it('casts date_of_birth to date', function () {
 it('casts disabilities and preferences to json', function () {
     $participant = Participant::factory()->create([
         'disabilities' => ['hearing', 'speech'],
-        'preferences' => ['mode' => 'phone'],
+        'preferences'  => ['mode' => 'phone'],
     ]);
 
     expect($participant->disabilities)->toBe(['hearing', 'speech']);

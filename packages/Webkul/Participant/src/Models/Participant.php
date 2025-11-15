@@ -3,9 +3,9 @@
 namespace Webkul\Participant\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Participant extends Model
 {
@@ -23,17 +23,15 @@ class Participant extends Model
 
     protected $casts = [
         'date_of_birth' => 'date',
-        'disabilities' => 'json',
-        'preferences' => 'json',
-        'is_active' => 'boolean',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
+        'disabilities'  => 'json',
+        'preferences'   => 'json',
+        'is_active'     => 'boolean',
+        'created_at'    => 'datetime',
+        'updated_at'    => 'datetime',
     ];
 
     /**
      * Get the contact associated with this participant.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function contact(): BelongsTo
     {
@@ -42,8 +40,6 @@ class Participant extends Model
 
     /**
      * Get the user associated with this participant.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user(): BelongsTo
     {
@@ -52,8 +48,6 @@ class Participant extends Model
 
     /**
      * Get the NDIS plan for this participant.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function ndisPlan(): HasOne
     {
@@ -62,8 +56,6 @@ class Participant extends Model
 
     /**
      * Get all service requests for this participant.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function serviceRequests(): HasMany
     {

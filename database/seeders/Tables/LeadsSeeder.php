@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders\Tables;
 
 use Illuminate\Database\Seeder;
@@ -16,14 +17,12 @@ class LeadsSeeder extends Seeder
         /**
          * Command :
          * artisan seed:generate --table-mode --tables=activities,activity_files,activity_participants,attributes,attribute_options,attribute_values,core_config,countries,country_states,email_attachments,email_templates,emails,groups,lead_pipeline_stages,lead_pipelines,lead_products,lead_sources,lead_stages,leads,organizations,persons,products,quote_items,quotes,roles,tags,workflows
-         *
          */
-
-DB::table("leads")->truncate();
+        DB::table('leads')->truncate();
         $dataTables = [
-            
+
         ];
-        
-        DB::table("leads")->insert($dataTables);
+
+        DB::table('leads')->insert($dataTables);
     }
 }
