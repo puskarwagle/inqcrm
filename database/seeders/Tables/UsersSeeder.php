@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders\Tables;
 
 use Illuminate\Database\Seeder;
@@ -16,26 +17,24 @@ class UsersSeeder extends Seeder
         /**
          * Command :
          * artisan seed:generate --table-mode --tables=users
-         *
          */
-
-        DB::table("users")->truncate();
+        DB::table('users')->truncate();
 
         $dataTables = [
             [
-                'id' => 1,
-                'name' => 'Example Admin',
-                'email' => 'admin@example.com',
-                'password' => '$2y$10$omtxk7pDeqvmVmFI7K21buTkZCNa2j2wSuwr3ofANLQWMiqlpbUtG',
-                'status' => 1,
+                'id'              => 1,
+                'name'            => 'Example Admin',
+                'email'           => 'admin@example.com',
+                'password'        => '$2y$10$omtxk7pDeqvmVmFI7K21buTkZCNa2j2wSuwr3ofANLQWMiqlpbUtG',
+                'status'          => 1,
                 'view_permission' => 'global',
-                'role_id' => 1,
-                'remember_token' => NULL,
-                'created_at' => '2025-11-15 07:31:34',
-                'updated_at' => '2025-11-15 07:31:34',
-            ]
+                'role_id'         => 1,
+                'remember_token'  => null,
+                'created_at'      => '2025-11-15 07:31:34',
+                'updated_at'      => '2025-11-15 07:31:34',
+            ],
         ];
-        
-        DB::table("users")->insert($dataTables);
+
+        DB::table('users')->insert($dataTables);
     }
 }

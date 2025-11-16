@@ -2,8 +2,8 @@
 
 namespace Webkul\NDISPlan\Repositories;
 
-use Webkul\NDISPlan\Models\NDISPlan;
 use Illuminate\Database\Eloquent\Collection;
+use Webkul\NDISPlan\Models\NDISPlan;
 
 class NDISPlanRepository
 {

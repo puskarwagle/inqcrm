@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders\Tables;
 
 use Illuminate\Database\Seeder;
@@ -16,15 +17,13 @@ class AttributeOptionsSeeder extends Seeder
         /**
          * Command :
          * artisan seed:generate --table-mode --tables=activities,activity_files,activity_participants,attributes,attribute_options,attribute_values,core_config,countries,country_states,email_attachments,email_templates,emails,groups,lead_pipeline_stages,lead_pipelines,lead_products,lead_sources,lead_stages,leads,organizations,persons,products,quote_items,quotes,roles,tags,workflows
-         *
          */
-
-        DB::table("attribute_options")->truncate();
+        DB::table('attribute_options')->truncate();
 
         $dataTables = [
-            
+
         ];
-        
-        DB::table("attribute_options")->insert($dataTables);
+
+        DB::table('attribute_options')->insert($dataTables);
     }
 }
