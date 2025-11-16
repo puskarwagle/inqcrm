@@ -654,3 +654,13 @@
 .tox.tox-silver-sink.tox-tinymce-aux {
     z-index: 99999;
 }
+
+.app-logo {
+    height: 32px;
+    width: 32px;
+    padding: 4px;
+}
+
+.dark .app-logo {
+    background-color: white;
+}
