@@ -1,14 +1,14 @@
 <?php
 
-use Webkul\Participant\Models\Participant;
-use Webkul\Contact\Models\Contact;
-use Webkul\User\Models\User;
-use Webkul\Participant\Repositories\ParticipantRepository;
 use Illuminate\Database\Eloquent\Collection;
+use Webkul\Contact\Models\Contact;
+use Webkul\Participant\Models\Participant;
+use Webkul\Participant\Repositories\ParticipantRepository;
+use Webkul\User\Models\User;
 
 describe('ParticipantRepository', function () {
     beforeEach(function () {
-        $this->repository = new ParticipantRepository(new Participant());
+        $this->repository = new ParticipantRepository(new Participant);
     });
 
     it('can create a participant with valid data', function () {
@@ -16,15 +16,15 @@ describe('ParticipantRepository', function () {
         $user = User::factory()->create();
 
         $data = [
-            'contact_id' => $contact->id,
-            'user_id' => $user->id,
-            'ndis_number' => 'NDI-123456',
-            'date_of_birth' => '1990-01-01',
-            'address' => '123 Test St',
+            'contact_id'        => $contact->id,
+            'user_id'           => $user->id,
+            'ndis_number'       => 'NDI-123456',
+            'date_of_birth'     => '1990-01-01',
+            'address'           => '123 Test St',
             'emergency_contact' => 'Jane Doe',
-            'disabilities' => ['physical'],
-            'preferences' => ['email_updates' => true],
-            'is_active' => true,
+            'disabilities'      => ['physical'],
+            'preferences'       => ['email_updates' => true],
+            'is_active'         => true,
         ];
 
         $participant = $this->repository->create($data);

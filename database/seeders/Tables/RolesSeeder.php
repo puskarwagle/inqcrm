@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders\Tables;
 
 use Illuminate\Database\Seeder;
@@ -16,22 +17,20 @@ class RolesSeeder extends Seeder
         /**
          * Command :
          * artisan seed:generate --table-mode --tables=activities,activity_files,activity_participants,attributes,attribute_options,attribute_values,core_config,countries,country_states,email_attachments,email_templates,emails,groups,lead_pipeline_stages,lead_pipelines,lead_products,lead_sources,lead_stages,leads,organizations,persons,products,quote_items,quotes,roles,tags,workflows
-         *
          */
-
-DB::table("roles")->truncate();
+        DB::table('roles')->truncate();
         $dataTables = [
             [
-                'id' => 1,
-                'name' => 'Administrator',
-                'description' => 'Administrator Role',
+                'id'              => 1,
+                'name'            => 'Administrator',
+                'description'     => 'Administrator Role',
                 'permission_type' => 'all',
-                'permissions' => NULL,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ]
+                'permissions'     => null,
+                'created_at'      => null,
+                'updated_at'      => null,
+            ],
         ];
-        
-        DB::table("roles")->insert($dataTables);
+
+        DB::table('roles')->insert($dataTables);
     }
 }
