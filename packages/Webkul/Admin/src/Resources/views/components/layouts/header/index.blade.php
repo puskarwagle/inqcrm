@@ -5,7 +5,7 @@
         <x-admin::layouts.sidebar.mobile />
         
         <a href="{{ route('admin.dashboard.index') }}">
-            @if ($logo = core()->getConfigData('general.general.admin_logo.logo_image'))
+            @if ($logo = core()->getConfigData('general.design.admin_logo.logo_image'))
                 <img
                     class="h-10"
                     src="{{ Storage::url($logo) }}"
