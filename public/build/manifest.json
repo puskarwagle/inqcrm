@@ -268,7 +268,7 @@
     "isDynamicEntry": true
   },
   "packages/Webkul/Admin/src/Resources/assets/css/app.css": {
-    "file": "assets/app-DBFrudaJ.css",
+    "file": "assets/app-BKKqLJUi.css",
     "src": "packages/Webkul/Admin/src/Resources/assets/css/app.css",
     "isEntry": true
   },
@@ -285,8 +285,8 @@
     "src": "packages/Webkul/Admin/src/Resources/assets/images/dark-corner-clip.svg"
   },
   "packages/Webkul/Admin/src/Resources/assets/images/dark-logo.svg": {
-    "file": "assets/dark-logo-Dnw3cpYj.svg",
-    "src": "packages/Webkul/Admin/src/Resources/assets/images/dark-logo.svg"
+    "file": "assets/logo-DcRVJDnG.svg",
+    "src": "packages/Webkul/Admin/src/Resources/assets/images/logo.svg"
   },
   "packages/Webkul/Admin/src/Resources/assets/images/empty-placeholders/activities.svg": {
     "file": "assets/activities-DpB2XKqX.svg",
@@ -357,16 +357,16 @@
     "src": "packages/Webkul/Admin/src/Resources/assets/images/favicon.ico"
   },
   "packages/Webkul/Admin/src/Resources/assets/images/logo.svg": {
-    "file": "assets/logo-Bjh7YAuF.svg",
+    "file": "assets/logo-DcRVJDnG.svg",
     "src": "packages/Webkul/Admin/src/Resources/assets/images/logo.svg"
   },
   "packages/Webkul/Admin/src/Resources/assets/images/mobile-dark-logo.svg": {
-    "file": "assets/mobile-dark-logo-COPgCide.svg",
-    "src": "packages/Webkul/Admin/src/Resources/assets/images/mobile-dark-logo.svg"
+    "file": "assets/logo-DcRVJDnG.svg",
+    "src": "packages/Webkul/Admin/src/Resources/assets/images/logo.svg"
   },
   "packages/Webkul/Admin/src/Resources/assets/images/mobile-light-logo.svg": {
-    "file": "assets/mobile-light-logo-CjoobCkl.svg",
-    "src": "packages/Webkul/Admin/src/Resources/assets/images/mobile-light-logo.svg"
+    "file": "assets/logo-DcRVJDnG.svg",
+    "src": "packages/Webkul/Admin/src/Resources/assets/images/logo.svg"
   },
   "packages/Webkul/Admin/src/Resources/assets/js/app.js": {
     "file": "assets/app-BXQlXNx-.js",
