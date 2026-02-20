@@ -1,0 +1,171 @@
+migrations:
+  - name: 2019_08_19_000000_create_failed_jobs_table
+    time: 20,789ms
+  - name: 2019_12_14_000001_create_personal_access_tokens_table
+    time: 26,417ms
+  - name: 2021_03_12_060658_create_core_config_table
+    time: 8,433ms
+  - name: 2021_03_12_074578_create_groups_table
+    time: 9,629ms
+  - name: 2021_03_12_074597_create_roles_table
+    time: 13,825ms
+  - name: 2021_03_12_074857_create_users_table
+    time: 42,537ms
+  - name: 2021_03_12_074867_create_user_groups_table
+    time: 63,595ms
+  - name: 2021_03_12_074957_create_user_password_resets_table
+    time: 20,768ms
+  - name: 2021_04_02_080709_create_attributes_table
+    time: 15,646ms
+  - name: 2021_04_02_080837_create_attribute_options_table
+    time: 35,531ms
+  - name: 2021_04_06_122751_create_attribute_values_table
+    time: 42,266ms
+  - name: 2021_04_09_051326_create_organizations_table
+    time: 13,640ms
+  - name: 2021_04_09_065617_create_persons_table
+    time: 37,641ms
+  - name: 2021_04_09_065617_create_products_table
+    time: 23,741ms
+  - name: 2021_04_12_173232_create_countries_table
+    time: 10,664ms
+  - name: 2021_04_12_173344_create_country_states_table
+    time: 38,740ms
+  - name: 2021_04_21_172825_create_lead_sources_table
+    time: 10,237ms
+  - name: 2021_04_21_172847_create_lead_types_table
+    time: 9,996ms
+  - name: 2021_04_22_153258_create_lead_stages_table
+    time: 19,705ms
+  - name: 2021_04_22_155706_create_lead_pipelines_table
+    time: 11,274ms
+  - name: 2021_04_22_155838_create_lead_pipeline_stages_table
+    time: 66,694ms
+  - name: 2021_04_22_164215_create_leads_table
+    time: 253,015ms
+  - name: 2021_04_22_171805_create_lead_products_table
+    time: 74,257ms
+  - name: 2021_05_12_150329_create_activities_table
+    time: 42,173ms
+  - name: 2021_05_12_150329_create_lead_activities_table
+    time: 68,720ms
+  - name: 2021_05_15_151855_create_activity_files_table
+    time: 34,536ms
+  - name: 2021_05_20_141230_create_tags_table
+    time: 48,268ms
+  - name: 2021_05_20_141240_create_lead_tags_table
+    time: 73,143ms
+  - name: 2021_05_24_075618_create_emails_table
+    time: 162,245ms
+  - name: 2021_05_25_072700_create_email_attachments_table
+    time: 43,130ms
+  - name: 2021_06_07_162808_add_lead_view_permission_column_in_users_table
+    time: 27,430ms
+  - name: 2021_07_01_230345_create_quotes_table
+    time: 70,854ms
+  - name: 2021_07_01_231317_create_quote_items_table
+    time: 43,002ms
+  - name: 2021_07_02_201822_create_lead_quotes_table
+    time: 69,018ms
+  - name: 2021_07_28_142453_create_activity_participants_table
+    time: 91,844ms
+  - name: 2021_08_26_133538_create_workflows_table
+    time: 10,837ms
+  - name: 2021_09_03_172713_create_email_templates_table
+    time: 10,724ms
+  - name: 2021_09_22_194103_add_unique_index_to_name_in_organizations_table
+    time: 2,948ms
+  - name: 2021_09_22_194622_add_unique_index_to_name_in_groups_table
+    time: 2,968ms
+  - name: 2021_09_23_221138_add_column_expected_close_date_in_leads_table
+    time: 46,286ms
+  - name: 2021_09_30_135857_add_column_rotten_days_in_lead_pipelines_table
+    time: 22,241ms
+  - name: 2021_09_30_154222_alter_lead_pipeline_stages_table
+    time: 161,467ms
+  - name: 2021_09_30_161722_alter_leads_table
+    time: 146,637ms
+  - name: 2021_09_30_183825_change_user_id_to_nullable_in_leads_table
+    time: 37,336ms
+  - name: 2021_10_02_170105_insert_expected_closed_date_column_in_attributes_table
+    time: 1ms
+  - name: 2021_11_11_180804_change_lead_pipeline_stage_id_constraint_in_leads_table
+    time: 56,070ms
+  - name: 2021_11_12_171510_add_image_column_in_users_table
+    time: 30,373ms
+  - name: 2021_11_17_190943_add_location_column_in_activities_table
+    time: 26,571ms
+  - name: 2021_12_14_213049_create_web_forms_table
+    time: 23,516ms
+  - name: 2021_12_14_214923_create_web_form_attributes_table
+    time: 84,633ms
+  - name: 2024_01_11_154640_create_imports_table
+    time: 10,718ms
+  - name: 2024_01_11_154741_create_import_batches_table
+    time: 39,346ms
+  - name: 2024_05_10_152848_create_saved_filters_table
+    time: 19,579ms
+  - name: 2024_06_21_160707_create_warehouses_table
+    time: 12,160ms
+  - name: 2024_06_21_160735_create_warehouse_locations_table
+    time: 43,126ms
+  - name: 2024_06_24_174241_insert_warehouse_attributes_in_attributes_table
+    time: 2ms
+  - name: 2024_06_28_154009_create_product_inventories_table
+    time: 98,684ms
+  - name: 2024_07_24_150821_create_webhooks_table
+    time: 19,582ms
+  - name: 2024_07_31_092951_add_job_title_in_persons_table
+    time: 31,084ms
+  - name: 2024_07_31_093603_add_organization_sales_owner_attribute_in_attributes_table
+    time: 1ms
+  - name: 2024_07_31_093605_add_person_job_title_attribute_in_attributes_table
+    time: 1ms
+  - name: 2024_07_31_093605_add_person_sales_owner_attribute_in_attributes_table
+    time: 1ms
+  - name: 2024_08_06_145943_create_person_tags_table
+    time: 62,434ms
+  - name: 2024_08_06_161212_create_person_activities_table
+    time: 70,134ms
+  - name: 2024_08_10_100329_create_warehouse_activities_table
+    time: 70,028ms
+  - name: 2024_08_10_100340_create_warehouse_tags_table
+    time: 71,188ms
+  - name: 2024_08_10_150329_create_product_activities_table
+    time: 73,747ms
+  - name: 2024_08_10_150340_create_product_tags_table
+    time: 77,466ms
+  - name: 2024_08_14_102116_add_user_id_column_in_persons_table
+    time: 67,061ms
+  - name: 2024_08_14_102136_add_user_id_column_in_organizations_table
+    time: 66,124ms
+  - name: 2024_08_21_153011_add_leads_stage_and_pipeline_attributes
+    time: 1ms
+  - name: 2024_08_27_091619_create_email_tags_table
+    time: 62,898ms
+  - name: 2024_09_06_065808_alter_product_inventories_table
+    time: 36,703ms
+  - name: 2024_09_09_094040_create_job_batches_table
+    time: 12,676ms
+  - name: 2024_09_09_094042_create_jobs_table
+    time: 17,897ms
+  - name: 2024_09_09_112201_add_unique_id_to_person_table
+    time: 28,298ms
+  - name: 2024_10_29_044744_create_marketing_events_table
+    time: 11,005ms
+  - name: 2024_11_04_122500_create_marketing_campaigns_table
+    time: 72,260ms
+  - name: 2024_11_29_120302_modify_foreign_keys_in_leads_table
+    time: 251,630ms
+  - name: 2025_01_17_151632_alter_activities_table
+    time: 59,060ms
+  - name: 2025_01_29_133500_update_text_column_type_in_core_config_table
+    time: 24,939ms
+  - name: 2025_03_19_132236_update_organization_id_column_in_persons_table
+    time: 39,697ms
+  - name: 2025_07_01_133612_alter_lead_pipelines_table
+    time: 4,564ms
+  - name: 2025_07_02_191710_alter_attribute_values_table
+    time: 40,659ms
+  - name: 2025_07_09_133553_alter_email_templates_table
+    time: 7,880ms

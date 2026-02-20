@@ -248,7 +248,7 @@ class Lead extends AbstractReporting
     {
         return $this->leadRepository
             ->resetModel()
-            ->whereIn('lead_pipeline_stage_id', $this->wonStageIds)
+            ->whereIn('leads.lead_pipeline_stage_id', $this->wonStageIds)
             ->whereBetween('created_at', [$startDate, $endDate])
             ->sum('lead_value');
     }
@@ -277,7 +277,7 @@ class Lead extends AbstractReporting
     {
         return $this->leadRepository
             ->resetModel()
-            ->whereIn('lead_pipeline_stage_id', $this->lostStageIds)
+            ->whereIn('leads.lead_pipeline_stage_id', $this->lostStageIds)
             ->whereBetween('created_at', [$startDate, $endDate])
             ->sum('lead_value');
     }
@@ -294,7 +294,7 @@ class Lead extends AbstractReporting
                 DB::raw('SUM(lead_value) as total')
             )
             ->leftJoin('lead_sources', 'leads.lead_source_id', '=', 'lead_sources.id')
-            ->whereIn('lead_pipeline_stage_id', $this->wonStageIds)
+            ->whereIn('leads.lead_pipeline_stage_id', $this->wonStageIds)
             ->whereBetween('leads.created_at', [$this->startDate, $this->endDate])
             ->groupBy('lead_source_id')
             ->get();
@@ -312,7 +312,7 @@ class Lead extends AbstractReporting
                 DB::raw('SUM(lead_value) as total')
             )
             ->leftJoin('lead_types', 'leads.lead_type_id', '=', 'lead_types.id')
-            ->whereIn('lead_pipeline_stage_id', $this->wonStageIds)
+            ->whereIn('leads.lead_pipeline_stage_id', $this->wonStageIds)
             ->whereBetween('leads.created_at', [$this->startDate, $this->endDate])
             ->groupBy('lead_type_id')
             ->get();
@@ -330,8 +330,8 @@ class Lead extends AbstractReporting
                 DB::raw('COUNT(lead_value) as total')
             )
             ->leftJoin('lead_pipeline_stages', 'leads.lead_pipeline_stage_id', '=', 'lead_pipeline_stages.id')
-            ->whereNotIn('lead_pipeline_stage_id', $this->wonStageIds)
-            ->whereNotIn('lead_pipeline_stage_id', $this->lostStageIds)
+            ->whereNotIn('leads.lead_pipeline_stage_id', $this->wonStageIds)
+            ->whereNotIn('leads.lead_pipeline_stage_id', $this->lostStageIds)
             ->whereBetween('leads.created_at', [$this->startDate, $this->endDate])
             ->groupBy('lead_pipeline_stage_id')
             ->orderByDesc('total')
@@ -362,7 +362,7 @@ class Lead extends AbstractReporting
                 DB::raw('COUNT(DISTINCT id) AS count'),
                 DB::raw('SUM('.\DB::getTablePrefix()."$valueColumn) AS total")
             )
-            ->whereIn('lead_pipeline_stage_id', $this->stageIds)
+            ->whereIn('leads.lead_pipeline_stage_id', $this->stageIds)
             ->whereBetween($dateColumn, [$startDate, $endDate])
             ->groupBy(DB::raw($groupColumn))
             ->orderBy(DB::raw($groupColumn));

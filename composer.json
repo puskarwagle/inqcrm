@@ -37,7 +37,8 @@
         "pestphp/pest": "^2.6",
         "pestphp/pest-plugin-laravel": "^2.1",
         "phpunit/phpunit": "^10.0",
-        "spatie/laravel-ignition": "^2.0"
+        "spatie/laravel-ignition": "^2.0",
+        "tyghaykal/laravel-seed-generator": "^2.2"
     },
     "config": {
         "optimize-autoloader": true,
