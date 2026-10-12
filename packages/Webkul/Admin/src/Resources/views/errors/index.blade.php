@@ -9,7 +9,7 @@
         <div class="flex max-w-[745px] items-center gap-5">
             <div class="flex w-full flex-col gap-6">
                 <img
-                    src="{{ vite()->asset('images/inqcrm-logo.png') }}"
+                    src="{{ vite()->asset('images/bahamas.png') }}"
                     class="w-40 ltr:pr-16 rtl:pl-16"
                     alt="Inqcrm"
                 >

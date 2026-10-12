@@ -5,27 +5,19 @@
         <x-admin::layouts.sidebar.mobile />
         
         <a href="{{ route('admin.dashboard.index') }}">
-            @if ($logo = core()->getConfigData('general.general.admin_logo.logo_image'))
-                <img
-                    class="h-10"
-                    src="{{ Storage::url($logo) }}"
-                    alt="Inqcrm"
-                />
-            @else
-                <img
-                    class="h-10 max-sm:hidden"
-                    src="{{ vite()->asset('images/inqcrm-logo.png') }}"
-                    id="logo-image"
-                    alt="Inqcrm"
-                />
+            <img
+                class="h-10 max-sm:hidden"
+                src="{{ vite()->asset('images/bahamas.png') }}"
+                id="logo-image"
+                alt="Inqcrm"
+            />
 
-                <img
-                    class="h-10 sm:hidden"
-                    src="{{ vite()->asset('images/inqcrm-logo.png') }}"
-                    id="logo-image"
-                    alt="Inqcrm"
-                />
-            @endif
+            <img
+                class="h-10 sm:hidden"
+                src="{{ vite()->asset('images/bahamas.png') }}"
+                id="logo-image"
+                alt="Inqcrm"
+            />
         </a>
     </div>
 
@@ -79,22 +71,13 @@
             <!-- Admin Dropdown -->
             <x-slot:content class="mt-2 border-t-0 !p-0">
                 <div class="flex items-center gap-1.5 border border-x-0 border-b-gray-300 px-5 py-2.5 dark:border-gray-800">
-                    @if ($logo = core()->getConfigData('general.general.admin_logo.logo_image'))
-                        <img
-                            src="{{ Storage::url($logo) }}"
-                            alt="Inqcrm"
-                            width="24"
-                            height="24"
-                        />
-                    @else
-                        <img
-                            src="{{ vite()->asset('images/inqcrm-logo.png') }}"
-                            id="logo-image"
-                            alt="Inqcrm"
-                            width="24"
-                            height="24"
-                        />
-                    @endif
+                    <img
+                        src="{{ vite()->asset('images/bahamas.png') }}"
+                        id="logo-image"
+                        alt="Inqcrm"
+                        width="24"
+                        height="24"
+                    />
 
                     <!-- Version -->
                     <p class="text-gray-400">
@@ -153,9 +136,9 @@
                 return {
                     isDarkMode: {{ request()->cookie('dark_mode') ?? 0 }},
 
-                    logo: "{{ vite()->asset('images/inqcrm-logo.png') }}",
+                    logo: "{{ vite()->asset('images/bahamas.png') }}",
 
-                    dark_logo: "{{ vite()->asset('images/inqcrm-logo.png') }}",
+                    dark_logo: "{{ vite()->asset('images/bahamas.png') }}",
                 };
             },
 

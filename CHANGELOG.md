@@ -4,6 +4,8 @@ This changelog consists of the bug & security fixes and new features being inclu
 
 ## **v2.2.7 (Upcoming)**
 
+* [enhancement] Hardcoded the `bahamas.png` logo across the admin (header, login, password pages, emails, error page and web forms) instead of loading it from the database.
+
 * [enhancement] Rebranded the default admin logo to Inqcrm using `inqcrm-logo.png` with `Inqcrm` alt text across the header, login, password pages, emails, error page and web forms.
 
 * [feature] Added an NDIS demo seeder (`NDISDemoSeeder`) with eight fictional participants, plans and preferences. Run it with `php artisan db:seed --class=Database\Seeders\NDISDemoSeeder`.

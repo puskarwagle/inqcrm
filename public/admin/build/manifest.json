@@ -428,5 +428,9 @@
   "src/Resources/assets/images/inqcrm-logo.png": {
     "file": "assets/inqcrm-logo-d9fdb8c8.png",
     "src": "src/Resources/assets/images/inqcrm-logo.png"
+  },
+  "src/Resources/assets/images/bahamas.png": {
+    "file": "assets/bahamas-c96b1183.png",
+    "src": "src/Resources/assets/images/bahamas.png"
   }
 }

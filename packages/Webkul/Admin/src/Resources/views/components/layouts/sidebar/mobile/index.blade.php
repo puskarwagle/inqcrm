@@ -17,20 +17,12 @@
             </x-slot>
 
             <x-slot:header>
-                @if ($logo = core()->getConfigData('general.general.admin_logo.logo_image'))
-                    <img
-                        class="h-10"
-                        src="{{ Storage::url($logo) }}"
-                        alt="Inqcrm"
-                    />
-                @else
-                    <img
-                        class="h-10"
-                        src="{{ vite()->asset('images/inqcrm-logo.png') }}"
-                        id="logo-image"
-                        alt="Inqcrm"
-                    />
-                @endif
+                <img
+                    class="h-10"
+                    src="{{ vite()->asset('images/bahamas.png') }}"
+                    id="logo-image"
+                    alt="Inqcrm"
+                />
             </x-slot>
 
             <x-slot:content class="p-4">

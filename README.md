@@ -65,9 +65,9 @@ every upstream merge and require `npm run build` to take effect.
 <p align="center">
     <a href="https://krayincrm.com">
         <picture>
-            <source media="(prefers-color-scheme: dark)" height="100" srcset="packages/Webkul/Admin/src/Resources/assets/images/inqcrm-logo.png">
-            <source media="(prefers-color-scheme: light)" height="100" srcset="packages/Webkul/Admin/src/Resources/assets/images/inqcrm-logo.png">
-            <img alt="Inqcrm" height="100" src="packages/Webkul/Admin/src/Resources/assets/images/inqcrm-logo.png">
+            <source media="(prefers-color-scheme: dark)" height="100" srcset="packages/Webkul/Admin/src/Resources/assets/images/bahamas.png">
+            <source media="(prefers-color-scheme: light)" height="100" srcset="packages/Webkul/Admin/src/Resources/assets/images/bahamas.png">
+            <img alt="Inqcrm" height="100" src="packages/Webkul/Admin/src/Resources/assets/images/bahamas.png">
         </picture>
     </a>
 </p>

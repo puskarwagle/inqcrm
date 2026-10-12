@@ -23,19 +23,11 @@
             >
                 <div class="flex flex-col items-center gap-5">
                     <!-- Logo -->
-                    @if ($logo = core()->getConfigData('general.general.admin_logo.logo_image'))
-                        <img
-                            class="w-max"
-                            src="{{ Storage::url($logo) }}"
-                            alt="Inqcrm"
-                        />
-                    @else
-                        <img
-                            class="w-max"
-                            src="{{ vite()->asset('images/inqcrm-logo.png') }}"
-                            alt="Inqcrm"
-                        />
-                    @endif
+                    <img
+                        class="w-max"
+                        src="{{ vite()->asset('images/bahamas.png') }}"
+                        alt="Inqcrm"
+                    />
 
                     <h1
                         class="text-2xl font-bold"

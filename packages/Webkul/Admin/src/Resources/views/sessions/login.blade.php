@@ -7,19 +7,11 @@
     <div class="flex h-[100vh] flex-col items-center justify-center gap-10">
         <div class="flex flex-col items-center gap-5">
             <!-- Logo -->
-            @if ($logo = core()->getConfigData('general.general.admin_logo.logo_image'))
-                <img
-                    class="h-10 w-[110px]"
-                    src="{{ Storage::url($logo) }}"
-                    alt="Inqcrm"
-                />
-            @else
-                <img
-                    class="w-max"
-                    src="{{ vite()->asset('images/inqcrm-logo.png') }}"
-                    alt="Inqcrm"
-                />
-            @endif
+            <img
+                class="w-max"
+                src="{{ vite()->asset('images/bahamas.png') }}"
+                alt="Inqcrm"
+            />
 
             <div class="box-shadow flex min-w-[300px] flex-col rounded-md bg-white dark:bg-gray-900">
                 {!! view_render_event('admin.sessions.login.form_controls.before') !!}
