@@ -14,12 +14,12 @@ describe('NDISPlanRepository', function () {
         $participant = Participant::factory()->create();
 
         $data = [
-            'participant_id'  => $participant->id,
-            'ndis_number'     => 'PLAN-REPO-123',
+            'participant_id' => $participant->id,
+            'ndis_number' => 'PLAN-REPO-123',
             'plan_start_date' => '2024-01-01',
-            'plan_end_date'   => '2024-12-31',
-            'total_budget'    => 15000.00,
-            'is_active'       => true,
+            'plan_end_date' => '2024-12-31',
+            'total_budget' => 15000.00,
+            'is_active' => true,
         ];
 
         $ndisPlan = $this->repository->create($data);

@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Webkul\Contact\Models\Contact;
+use Webkul\NDISPlan\Models\NDISPlan;
+use Webkul\ServiceRequest\Models\ServiceRequest;
+use Webkul\User\Models\User;
 
 class Participant extends Model
 {
@@ -23,11 +27,11 @@ class Participant extends Model
 
     protected $casts = [
         'date_of_birth' => 'date',
-        'disabilities'  => 'json',
-        'preferences'   => 'json',
-        'is_active'     => 'boolean',
-        'created_at'    => 'datetime',
-        'updated_at'    => 'datetime',
+        'disabilities' => 'json',
+        'preferences' => 'json',
+        'is_active' => 'boolean',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
     /**
@@ -35,7 +39,7 @@ class Participant extends Model
      */
     public function contact(): BelongsTo
     {
-        return $this->belongsTo(\Webkul\Contact\Models\Contact::class);
+        return $this->belongsTo(Contact::class);
     }
 
     /**
@@ -43,7 +47,7 @@ class Participant extends Model
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(\Webkul\User\Models\User::class);
+        return $this->belongsTo(User::class);
     }
 
     /**
@@ -51,7 +55,7 @@ class Participant extends Model
      */
     public function ndisPlan(): HasOne
     {
-        return $this->hasOne(\Webkul\NDISPlan\Models\NDISPlan::class);
+        return $this->hasOne(NDISPlan::class);
     }
 
     /**
@@ -59,6 +63,6 @@ class Participant extends Model
      */
     public function serviceRequests(): HasMany
     {
-        return $this->hasMany(\Webkul\ServiceRequest\Models\ServiceRequest::class);
+        return $this->hasMany(ServiceRequest::class);
     }
 }

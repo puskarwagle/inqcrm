@@ -3,6 +3,7 @@
 namespace Webkul\NDISPlan\Providers;
 
 use Webkul\Core\Providers\BaseModuleServiceProvider;
+use Webkul\NDISPlan\Models\NDISPlan;
 use Webkul\NDISPlan\Repositories\NDISPlanRepository;
 
 class NDISPlanServiceProvider extends BaseModuleServiceProvider
@@ -14,7 +15,7 @@ class NDISPlanServiceProvider extends BaseModuleServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
 
         $this->app->singleton(NDISPlanRepository::class, function () {
-            return new NDISPlanRepository(new \Webkul\NDISPlan\Models\NDISPlan);
+            return new NDISPlanRepository(new NDISPlan);
         });
     }
 }

@@ -10,14 +10,14 @@ use Webkul\DataTransfer\Providers\ModuleServiceProvider as DataTransferModuleSer
 use Webkul\Email\Providers\ModuleServiceProvider as EmailModuleServiceProvider;
 use Webkul\EmailTemplate\Providers\ModuleServiceProvider as EmailTemplateModuleServiceProvider;
 use Webkul\Lead\Providers\ModuleServiceProvider as LeadModuleServiceProvider;
+use Webkul\NDISPlan\Providers\NDISPlanServiceProvider as NDISPlanModuleServiceProvider;
+use Webkul\Participant\Providers\ParticipantServiceProvider as ParticipantModuleServiceProvider;
 use Webkul\Product\Providers\ModuleServiceProvider as ProductModuleServiceProvider;
 use Webkul\Quote\Providers\ModuleServiceProvider as QuoteModuleServiceProvider;
 use Webkul\Tag\Providers\ModuleServiceProvider as TagModuleServiceProvider;
 use Webkul\User\Providers\ModuleServiceProvider as UserModuleServiceProvider;
 use Webkul\Warehouse\Providers\ModuleServiceProvider as WarehouseModuleServiceProvider;
 use Webkul\WebForm\Providers\ModuleServiceProvider as WebFormModuleServiceProvider;
-use Webkul\Participant\Providers\ParticipantServiceProvider as ParticipantModuleServiceProvider;
-use Webkul\NDISPlan\Providers\NDISPlanServiceProvider as NDISPlanModuleServiceProvider;
 
 return [
     'modules' => [

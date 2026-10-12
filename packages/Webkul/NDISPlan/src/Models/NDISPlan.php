@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Webkul\Billing\Models\Invoice;
+use Webkul\Participant\Models\Participant;
 
 class NDISPlan extends Model
 {
@@ -30,17 +32,17 @@ class NDISPlan extends Model
     ];
 
     protected $casts = [
-        'plan_start_date'                => 'date',
-        'plan_end_date'                  => 'date',
-        'total_budget'                   => 'float',
-        'used_budget'                    => 'float',
-        'remaining_budget'               => 'float',
-        'support_coordination_budget'    => 'float',
-        'support_coordination_used'      => 'float',
+        'plan_start_date' => 'date',
+        'plan_end_date' => 'date',
+        'total_budget' => 'float',
+        'used_budget' => 'float',
+        'remaining_budget' => 'float',
+        'support_coordination_budget' => 'float',
+        'support_coordination_used' => 'float',
         'support_coordination_remaining' => 'float',
-        'is_active'                      => 'boolean',
-        'created_at'                     => 'datetime',
-        'updated_at'                     => 'datetime',
+        'is_active' => 'boolean',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
     /**
@@ -48,7 +50,7 @@ class NDISPlan extends Model
      */
     public function participant(): BelongsTo
     {
-        return $this->belongsTo(\Webkul\Participant\Models\Participant::class);
+        return $this->belongsTo(Participant::class);
     }
 
     /**
@@ -56,7 +58,7 @@ class NDISPlan extends Model
      */
     public function invoices(): HasMany
     {
-        return $this->hasMany(\Webkul\Billing\Models\Invoice::class);
+        return $this->hasMany(Invoice::class);
     }
 
     /**

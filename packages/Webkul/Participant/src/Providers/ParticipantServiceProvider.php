@@ -3,6 +3,7 @@
 namespace Webkul\Participant\Providers;
 
 use Webkul\Core\Providers\BaseModuleServiceProvider;
+use Webkul\Participant\Models\Participant;
 use Webkul\Participant\Repositories\ParticipantRepository;
 
 class ParticipantServiceProvider extends BaseModuleServiceProvider
@@ -14,7 +15,7 @@ class ParticipantServiceProvider extends BaseModuleServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
 
         $this->app->singleton(ParticipantRepository::class, function () {
-            return new ParticipantRepository(new \Webkul\Participant\Models\Participant);
+            return new ParticipantRepository(new Participant);
         });
     }
 }
