@@ -4,6 +4,8 @@ This changelog consists of the bug & security fixes and new features being inclu
 
 ## **v2.2.7 (Upcoming)**
 
+* [enhancement] Rebranded the default admin logo to Inqcrm using `inqcrm-logo.png` with `Inqcrm` alt text across the header, login, password pages, emails, error page and web forms.
+
 * [feature] Added an NDIS demo seeder (`NDISDemoSeeder`) with eight fictional participants, plans and preferences. Run it with `php artisan db:seed --class=Database\Seeders\NDISDemoSeeder`.
 
 * [feature] Re-applied the inqcrm NDIS modules (participants, plans, service requests, providers, bookings, billing, documents, AI assistant, reports and integration placeholder pages) on top of upstream 2.2.

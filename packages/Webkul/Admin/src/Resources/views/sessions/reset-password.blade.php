@@ -11,13 +11,13 @@
                 <img
                     class="h-10 w-[110px]"
                     src="{{ Storage::url($logo) }}"
-                    alt="{{ config('app.name') }}"
+                    alt="Inqcrm"
                 />
             @else
                 <img
                     class="w-max"
-                    src="{{ vite()->asset('images/logo.svg') }}"
-                    alt="{{ config('app.name') }}"
+                    src="{{ vite()->asset('images/inqcrm-logo.png') }}"
+                    alt="Inqcrm"
                 />
             @endif
 

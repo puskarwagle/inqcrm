@@ -9,12 +9,9 @@
         <div class="flex max-w-[745px] items-center gap-5">
             <div class="flex w-full flex-col gap-6">
                 <img
-                    src="{{ 
-                        request()->cookie('dark_mode') 
-                        ? vite()->asset('images/dark-logo.svg') 
-                        : vite()->asset('images/logo.svg') 
-                    }}"
+                    src="{{ vite()->asset('images/inqcrm-logo.png') }}"
                     class="w-40 ltr:pr-16 rtl:pl-16"
+                    alt="Inqcrm"
                 >
 
 				<div class="text-[38px] font-bold text-gray-800 dark:text-white">
