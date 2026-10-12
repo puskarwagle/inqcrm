@@ -71,6 +71,21 @@ php artisan test --compact   # run the Pest test suite
 
 ---
 
+## Agent Workflows (trigger phrases)
+
+- When the user says **"run the git workflow"**, follow
+  [`docs/git_workflow_of_inqcrm.md`](docs/git_workflow_of_inqcrm.md) exactly:
+  branch off `inqcrm-2.2`, commit grouped by concern, verify, push, and open
+  the PR — finishing means pushed + PR open, every time.
+- When the user says **"update in server"** (or "update the server"), follow the
+  deploy sequence in [`docs/server-inqcrm.md`](docs/server-inqcrm.md): pull
+  `origin/inqcrm-2.2` on the server via `ssh go`, then `composer install`,
+  `migrate --force`, seed `NDISDemoSeeder`, `optimize:clear`, and verify with
+  `pm2 ls` + the login-page curl. NEVER `artisan optimize`/`route:cache` there.
+  Only deploy what has actually been merged to `origin/inqcrm-2.2`.
+
+---
+
 ## Upstream Sync Runbook — inqcrm (whitelabel of krayin/laravel-crm)
 
 Context (learned 2026-10-12): this repo was `git clone`d from Krayin, then
