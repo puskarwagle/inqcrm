@@ -2,6 +2,12 @@
 
 This changelog consists of the bug & security fixes and new features being included in the releases listed below.
 
+## **v2.2.7 (Upcoming)**
+
+* [feature] Re-applied the inqcrm NDIS modules (participants, plans, service requests, providers, bookings, billing, documents, AI assistant, reports and integration placeholder pages) on top of upstream 2.2.
+
+* [fixed] Fixed the admin sidebar showing raw translation keys for the NDIS menu items.
+
 ## **v2.2.6 (10th of Sept 2026)**
 
 * [security] Improved in Security.

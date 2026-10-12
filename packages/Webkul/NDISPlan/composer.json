@@ -1,0 +1,20 @@
+{
+    "name": "webkul/ndisplan",
+    "description": "NDIS Plan module for Krayin CRM.",
+    "type": "krayin-package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Webkul\\NDISPlan\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webkul\\NDISPlan\\Providers\\NDISPlanServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev"
+}

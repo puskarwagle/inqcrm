@@ -68,3 +68,90 @@ php artisan test --compact   # run the Pest test suite
 - Add tests for new behavior; follow the `pest-testing` skill.
 - Run `./vendor/bin/pint` before committing — CI applies Pint formatting.
 - Validate the skills setup with `bash bin/validate-skills.sh`.
+
+---
+
+## Upstream Sync Runbook — inqcrm (whitelabel of krayin/laravel-crm)
+
+Context (learned 2026-10-12): this repo was `git clone`d from Krayin, then
+squash-imported as `first commit`. There is **no shared history** with upstream,
+local was Laravel 10, upstream `2.2` is Laravel 12. Never `git pull`/`merge`
+old branches (`myui`, `main`, `ndis`, `new`, `addfeatures`) directly into
+upstream code — 900+ files diverge.
+
+### Remotes (2.2 only, no branch sprawl)
+
+```bash
+git remote -v
+# origin   https://github.com/puskarwagle/inqcrm.git
+# upstream https://github.com/krayin/laravel-crm.git
+
+git config --get-all remote.upstream.fetch
+# must be exactly: +refs/heads/2.2:refs/remotes/upstream/2.2
+
+# if wrong, lock it:
+git config remote.upstream.fetch "+refs/heads/2.2:refs/remotes/upstream/2.2"
+git fetch upstream
+```
+
+### Branch map
+
+- `backup-myui-before-2.2-upgrade` — frozen pre-upgrade snapshot. Never commit here.
+- `inqcrm-2.2` — clean integration branch, tracks `upstream/2.2` + re-applied
+  custom modules. All new work goes here.
+- Old `myui`/`main`/`ndis`/`new`/`addfeatures` — reference only.
+
+### Custom surface (what must survive upgrades)
+
+New files (copy verbatim with `git checkout <backup> -- <paths>`):
+`packages/Webkul/Participant`, `packages/Webkul/NDISPlan`,
+`packages/Webkul/Admin/src/Routes/Admin/ndis-routes.php` (includes AI
+Assistant `/ai/*` placeholder routes), `packages/Webkul/Admin/src/Config/ndis-menu.php`,
+`packages/Webkul/Admin/src/Resources/views/ndis/`,
+`database/factories/NDISPlanFactory.php`, `database/factories/ParticipantFactory.php`,
+NDIS `tests/Unit/**`, `docs/NDIS_MODULE_INVENTORY.md`, `docs/dplan.md`.
+
+Wired edits (re-apply by hand, never wholesale checkout):
+- `composer.json` psr-4: add `Webkul\Participant\` + `Webkul\NDISPlan\`.
+- `config/concord.php`: keep upstream `use … as …` style, append the two
+  ModuleServiceProviders.
+- `packages/Webkul/Admin/src/Routes/Admin/web.php`: keep upstream
+  `help-routes.php` + `rest-routes.php`, append `require 'ndis-routes.php'`.
+- `packages/Webkul/Admin/src/Config/menu.php`: insert NDIS block before
+  Settings. Watch for duplicate `],` at splice points — `php -l` must pass.
+- `packages/Webkul/Admin/src/Resources/lang/en/app.php`: insert NDIS
+  `layouts` keys after `'product'`. Do not copy whole file (upstream reflows
+  formatting every release).
+
+### Concord gotcha (hit 2026-10-12)
+
+`Class Webkul\X\Models\Y must extend or implement Webkul\X\Contracts\Y` means
+a provider declares `protected $models = […]` without a matching Contract.
+For placeholder modules with no Contracts: **omit `$models` entirely**.
+Keep `extends Webkul\Core\Providers\BaseModuleServiceProvider`,
+`loadMigrationsFrom()`, and the repository singleton. Do not set
+`$routesPath` to a non-existent file.
+
+### Upgrade / fix cycle
+
+```bash
+git checkout inqcrm-2.2
+git fetch upstream
+git merge upstream/2.2
+composer install            # re-runs package:discover; Concord error here = provider bug above
+php artisan migrate --force
+php artisan route:list --name=participants
+php artisan route:list --name=ai.dashboard
+php artisan test --compact
+./vendor/bin/pint
+```
+
+### Local boot
+
+- DB: `DB_CONNECTION=mysql DB_HOST=127.0.0.1 DB_PORT=3306 DB_DATABASE=inqcrm`
+  (`php artisan migrate:status` must show 0 Pending; NDIS migrations are
+  `2025_11_15_000000_*` / `000001_*`).
+- Seed login: `admin@example.com` / `admin123` (Administrator, all).
+  Verified with `Hash::check` — reset via tinker if lost.
+- Serve: `php artisan serve --host=127.0.0.1 --port=8000` →
+  `http://localhost:8000/admin/login`.

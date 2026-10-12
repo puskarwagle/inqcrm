@@ -1,3 +1,67 @@
+# inqcrm — run, build & whitelabel notes
+
+Whitelabel of [Krayin CRM](https://github.com/krayin/laravel-crm) (`2.2`) +
+NDIS modules (`Participant`, `NDISPlan`, placeholder pages + AI Assistant
+routes). Branch `inqcrm-2.2` tracks `upstream/2.2`. Upstream sync runbook:
+see `AGENTS.md`. Upstream README continues below.
+
+## Run it (local)
+
+```bash
+composer install
+php artisan migrate --force
+php artisan serve --host=127.0.0.1 --port=8000
+# → http://localhost:8000/admin/login
+# login: admin@example.com / admin123 (Administrator, all)
+```
+
+Stop it: `Ctrl+C`, or `pkill -f "artisan serve"`.
+
+## That debug console at the bottom
+
+That's [Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar)
+(`barryvdh/laravel-debugbar`, `require-dev`). It only renders when
+`APP_DEBUG=true`. To run without it:
+
+```bash
+# .env
+APP_DEBUG=false
+php artisan config:clear
+```
+
+No rebuild needed for this. For production also use
+`composer install --no-dev` (debugbar isn't installed at all then).
+
+## Frontend build (only needed if you touch blade/svg/css)
+
+```bash
+npm install
+npm run build   # vite → public/build
+npm run dev     # watch mode (local dev only)
+```
+
+You do **not** need this for normal PHP/config changes, logo upload via
+admin UI, or translation edits.
+
+## Whitelabel (upgrade-safe, no code changes)
+
+Header, sidebar-top and login page all read the uploaded logo first
+(`general.general.admin_logo.logo_image`, fallback is
+`images/logo.svg`). So after login, go to:
+
+- Logo: **Admin → Configuration → General → General → Admin Logo** —
+  upload logo image + favicon. Survives `git merge upstream/2.2`.
+- “Powered by Krayin” bar: **Admin → Configuration → General →
+  Settings → Footer** — edit the text or turn the bar off entirely.
+  (Default text lives in `packages/Webkul/Admin/src/Config/core_config.php`;
+  don't edit it — the DB value from the UI wins and survives upgrades.)
+
+Do **not** replace the `.svg` files under
+`packages/Webkul/Admin/src/Resources/assets/images/` — they get wiped on
+every upstream merge and require `npm run build` to take effect.
+
+---
+
 <p align="center">
     <a href="https://krayincrm.com">
         <picture>

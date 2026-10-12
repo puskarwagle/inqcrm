@@ -16,6 +16,8 @@ use Webkul\Tag\Providers\ModuleServiceProvider as TagModuleServiceProvider;
 use Webkul\User\Providers\ModuleServiceProvider as UserModuleServiceProvider;
 use Webkul\Warehouse\Providers\ModuleServiceProvider as WarehouseModuleServiceProvider;
 use Webkul\WebForm\Providers\ModuleServiceProvider as WebFormModuleServiceProvider;
+use Webkul\Participant\Providers\ParticipantServiceProvider as ParticipantModuleServiceProvider;
+use Webkul\NDISPlan\Providers\NDISPlanServiceProvider as NDISPlanModuleServiceProvider;
 
 return [
     'modules' => [
@@ -35,6 +37,8 @@ return [
         UserModuleServiceProvider::class,
         WarehouseModuleServiceProvider::class,
         WebFormModuleServiceProvider::class,
+        ParticipantModuleServiceProvider::class,
+        NDISPlanModuleServiceProvider::class,
     ],
 
     'register_route_models' => true,
