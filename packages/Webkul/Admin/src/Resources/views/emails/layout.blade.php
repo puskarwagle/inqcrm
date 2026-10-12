@@ -16,8 +16,8 @@
                 <div style="margin-bottom: 45px;">
                     <a href="{{ config('app.url') }}">
                         <img
-                            src="{{ vite()->asset('images/logo.svg') }}"
-                            alt="{{ config('app.name') }}"
+                            src="{{ vite()->asset('images/inqcrm-logo.png') }}"
+                            alt="Inqcrm"
                             style="height: 40px; width: 110px;"
                         />
                     </a>
